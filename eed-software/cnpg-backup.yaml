@@ -7,4 +7,4 @@ spec:
   schedule: "0 4 * * *"
   backupOwnerReference: self
   cluster:
-    name: dp03
+    name: eed-software-postgres
