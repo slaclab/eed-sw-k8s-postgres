@@ -6,14 +6,14 @@ metadata:
 spec:
   instances: 3
   primaryUpdateStrategy: unsupervised
-  superuserSecret:
-    name: postgresql-creds
-  # bootstrap:
-  #   initdb:
-  #     database: postgresql_catalogs 
-  #     owner: postgresql
-  #     secret:
-  #       name: postgresql-creds
+  # superuserSecret:
+  #   name: postgresql-creds
+  bootstrap:
+    initdb:
+      database: app-database 
+      owner: postgresql
+      secret:
+        name: postgresql-creds
   # backup:
   #  retentionPolicy: "15d"
   #  barmanObjectStore:
