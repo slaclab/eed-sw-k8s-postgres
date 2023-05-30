@@ -4,6 +4,3 @@ resources:
 - cnpg-pooler.yaml
 - cnpg-backup.yaml
 - secret.yaml
-
-namespace: postgres
-
