@@ -11,7 +11,7 @@ spec:
       database: postgres_catalogs 
       owner: postgres
       secret:
-        name: postgres-secret
+        name: postgres-creds
   # backup:
   #  retentionPolicy: "15d"
   #  barmanObjectStore:
