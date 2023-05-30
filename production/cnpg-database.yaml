@@ -6,7 +6,6 @@ metadata:
 spec:
   instances: 2
   primaryUpdateStrategy: unsupervised
-
   bootstrap:
     initdb:
       database: postgres_catalogs 
@@ -30,14 +29,11 @@ spec:
   inheritedMetadata:
     annotations:
       prometheus.io/scrape: 'true'
-
   monitoring:
     enablePodMonitor: true
-
   nodeMaintenanceWindow:
     inProgress: false
     reusePVC: true
-
   postgresql:
     parameters:
       log_disconnections: on
@@ -54,7 +50,6 @@ spec:
       random_page_cost: "1.1"
       shared_buffers: 16GB
       work_mem: 160MB
-
   resources:
     requests:
       memory: 32Gi
@@ -62,7 +57,6 @@ spec:
     limits:
       memory: 64Gi
       cpu: 16
-
   storage:
     # storageClass: wekafs--sdf-k8s01
     size: 10Gi
