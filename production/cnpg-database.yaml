@@ -43,8 +43,8 @@ spec:
       log_temp_files: "1"
       maintenance_work_mem: 2GB
       max_connections: "1000"
-      max_wal_size: 16GB
-      min_wal_size: 4GB
+      max_wal_size: 4GB
+      min_wal_size: 2GB
       pg_stat_statements.max: "10000"
       pg_stat_statements.track: all
       random_page_cost: "1.1"
@@ -52,11 +52,11 @@ spec:
       work_mem: 160MB
   resources:
     requests:
-      memory: 32Gi
-      cpu: 4
+      memory: 2Gi
+      cpu: 1
     limits:
-      memory: 64Gi
-      cpu: 16
+      memory: 4Gi
+      cpu: 2
   storage:
     # storageClass: wekafs--sdf-k8s01
     size: 10Gi
