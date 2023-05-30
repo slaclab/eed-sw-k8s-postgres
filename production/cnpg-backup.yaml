@@ -1,10 +1,10 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: ScheduledBackup
 metadata:
-  name: eed-software-postgres
+  name: postgres
 spec:
   immediate: true
   schedule: "0 4 * * *"
   backupOwnerReference: self
   cluster:
-    name: eed-software-postgres
+    name: postgres

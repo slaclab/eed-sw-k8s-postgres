@@ -2,10 +2,10 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
-  name: eed-software-postgres-pooler-rw
+  name: postgres-pooler-rw
 spec:
   cluster:
-    name: eed-software-postgres
+    name: postgres
   instances: 3
   type: rw
 
@@ -54,17 +54,14 @@ spec:
                 values:
                 - pooler
             topologyKey: "kubernetes.io/hostname"
-
-
 ---
-
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
-  name: eed-software-postgres-pooler-ro
+  name: postgres-pooler-ro
 spec:
   cluster:
-    name: eed-software-postgres
+    name: postgres
   instances: 1
   type: ro
 
@@ -82,16 +79,13 @@ spec:
       tcp_keepidle: "1"
       tcp_keepintvl: "1"
       tcp_user_timeout: "21600"
-
   template:
     metadata:
       labels:
         app: pooler
       annotations:
         prometheus.io/scrape: 'true'
-
     spec:
-
       containers:
       - name: pgbouncer
         #image: my-pgbouncer:latest
@@ -102,7 +96,6 @@ spec:
           limits:
             cpu: "0.5"
             memory: 500Mi
-
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -113,18 +106,16 @@ spec:
                 values:
                 - pooler
             topologyKey: "kubernetes.io/hostname"
-
 ---
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
-  name: eed-software-postgres-pooler-transaction-rw
+  name: postgres-pooler-transaction-rw
 spec:
   cluster:
-    name: eed-software-postgres
+    name: postgres
   instances: 3
   type: rw
-
   pgbouncer:
     poolMode: transaction
     parameters:
@@ -139,14 +130,12 @@ spec:
       tcp_keepidle: "1"
       tcp_keepintvl: "1"
       tcp_user_timeout: "21600"
-
   template:
     metadata:
       labels:
         app: pooler-transaction
       annotations:
         prometheus.io/scrape: 'true'
-    
     spec:
       containers:
       - name: pgbouncer
@@ -157,7 +146,6 @@ spec:
           limits:
             cpu: "0.5"
             memory: 500Mi
-
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

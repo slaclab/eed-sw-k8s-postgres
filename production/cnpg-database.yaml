@@ -2,17 +2,17 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: eed-software-postgres
+  name: postgres
 spec:
   instances: 2
   primaryUpdateStrategy: unsupervised
 
   bootstrap:
     initdb:
-      database: eed-software-postgres_catalogs 
-      owner: eed-software-postgres
+      database: postgres_catalogs 
+      owner: postgres
       secret:
-        name: eed-software-postgres-creds
+        name: postgres-secret
   # backup:
   #  retentionPolicy: "15d"
   #  barmanObjectStore:
