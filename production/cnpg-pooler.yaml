@@ -5,10 +5,9 @@ metadata:
   name: postgres-pooler-rw
 spec:
   cluster:
-    name: postgres
+    name: postgresql
   instances: 3
   type: rw
-
   pgbouncer:
     poolMode: session
     parameters:
@@ -23,16 +22,13 @@ spec:
       tcp_keepidle: "1"
       tcp_keepintvl: "1"
       tcp_user_timeout: "21600"
-
   template:
     metadata:
       labels:
         app: pooler
       annotations:
         prometheus.io/scrape: 'true'
-    
     spec:
-    
       containers:
       - name: pgbouncer
         #image: my-pgbouncer:latest
@@ -43,7 +39,6 @@ spec:
           limits:
             cpu: "0.5"
             memory: 500Mi
-
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -58,13 +53,12 @@ spec:
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
-  name: postgres-pooler-ro
+  name: postgresql-pooler-ro
 spec:
   cluster:
-    name: postgres
+    name: postgresql
   instances: 1
   type: ro
-
   pgbouncer:
     poolMode: session
     parameters:
@@ -110,10 +104,10 @@ spec:
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
-  name: postgres-pooler-transaction-rw
+  name: postgresql-pooler-transaction-rw
 spec:
   cluster:
-    name: postgres
+    name: postgresql
   instances: 3
   type: rw
   pgbouncer:

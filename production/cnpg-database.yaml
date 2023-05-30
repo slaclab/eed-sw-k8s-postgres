@@ -2,16 +2,16 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: postgres
+  name: postgresql
 spec:
   instances: 2
   primaryUpdateStrategy: unsupervised
   bootstrap:
     initdb:
-      database: postgres_catalogs 
-      owner: postgres
+      database: postgresql_catalogs 
+      owner: postgresql
       secret:
-        name: postgres-creds
+        name: postgresql-creds
   # backup:
   #  retentionPolicy: "15d"
   #  barmanObjectStore:
