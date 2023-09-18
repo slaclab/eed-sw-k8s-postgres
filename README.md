@@ -10,8 +10,8 @@ This repository is used by argocd to deploy PostgreSQL on eed-sw k8s luster
 
 
 # Common Tasks
+kubectl apply -f cnpg-1.20.2.yaml
 
-Requires installation of the cnpg [kubectl plugin](https://cloudnative-pg.io/documentation/1.17/cnpg-plugin/#cloudnativepg-plugin)
 
 ### Get status of cluster
 
