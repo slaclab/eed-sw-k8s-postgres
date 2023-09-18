@@ -6,8 +6,7 @@ This repo holds the configuration for PostgreSQL
 
 This repository is used by argocd to deploy PostgreSQL on eed-sw k8s luster
 
-# Configuration Changes
-
+https://github.com/cloudnative-pg/cloudnative-pg/tree/main/docs/src/samples
 
 # Common Tasks
 kubectl apply -f cnpg-1.20.2.yaml
@@ -19,7 +18,6 @@ kubectl apply -f cnpg-1.20.2.yaml
 ### Promote a replica to primary
 
 
-
 ### Destroy an instance
 
 
@@ -29,4 +27,3 @@ kubectl apply -f cnpg-1.20.2.yaml
 
 We utilise the built in prometheus monitoring of cnpg and have a [live dashboard](https://grafana.slac.stanford.edu/d/z7FCA4Nnk/cloud-native-postgresql).
 
-[Link to on how to calculate work mem](https://www.enterprisedb.com/postgres-tutorials/how-tune-postgresql-memory)
