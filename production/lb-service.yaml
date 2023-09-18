@@ -1,17 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb-postgres-service
-  labels:
-    app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/part-of: ingress-nginx
+  name: lb-postgres
+  annotations:
+    metallb.universe.tf/address-pool: sdf-services
 spec:
   type: LoadBalancer
   ports:
     - name: postgres
       port: 5432
       targetPort: 5432
-      protocol: TCP
   selector:
-    app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/part-of: ingress-nginx
+    cnpg.io/cluster: postgresql
+    role: primary

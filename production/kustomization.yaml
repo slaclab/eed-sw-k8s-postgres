@@ -5,4 +5,4 @@ resources:
 - cnpg-database.yaml
 - cnpg-pooler.yaml
 - secret.yaml
-#- lb-service.yaml
+- lb-service.yaml
