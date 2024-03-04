@@ -6,3 +6,4 @@ resources:
 - cnpg-pooler.yaml
 - secret.yaml
 - lb-service.yaml
+- secret-reliability.yaml

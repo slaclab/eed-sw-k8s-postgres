@@ -4,17 +4,17 @@ kind: Cluster
 metadata:
   name: postgresql
 spec:
-  imageName: ghcr.io/cloudnative-pg/postgresql:15.4
-  instances: 3
-  primaryUpdateStrategy: unsupervised
-  # superuserSecret:
-  #   name: postgresql-creds
+  imageName: ghcr.io/cloudnative-pg/postgresql:15.6
+  instances: 2
+  primaryUpdateStrategy: supervised
+  superuserSecret:
+    name: postgresql-creds
   bootstrap:
     initdb:
-      database: app-database 
-      owner: postgresql
+      database: reliability 
+      owner: reliability
       secret:
-        name: postgresql-creds
+        name: reliability-cred
   # backup:
   #  retentionPolicy: "15d"
   #  barmanObjectStore:
@@ -42,14 +42,14 @@ spec:
       log_min_duration_statement: 250ms
       log_statement: all
       log_temp_files: "1"
-      maintenance_work_mem: 2GB
+      maintenance_work_mem: 4GB
       max_connections: "1000"
       max_wal_size: 4GB
       min_wal_size: 2GB
       pg_stat_statements.max: "10000"
       pg_stat_statements.track: all
       random_page_cost: "1.1"
-      shared_buffers: 16GB
+      shared_buffers: 2GB
       work_mem: 160MB
   resources:
     requests:
